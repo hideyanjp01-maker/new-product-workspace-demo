@@ -150,7 +150,7 @@ export function genDiagnosis(stage: StageKey, dateA: string, dateB: string) {
   function cards(kind: typeof scenes[number]) {
     const rnd = seededRandom(hashSeed(`tmallTrafficOps|diag|${stage}|${kind}|${dateA}|${dateB}`))
     const sev = ['high','medium','low','success'] as const
-    const pick = <T,>(arr: T[]) => arr[Math.floor(rnd()*arr.length)]
+    const pick = <T,>(arr: readonly T[]): T => arr[Math.floor(rnd()*arr.length)]
     return Array.from({ length: 6 }).map((_, i) => ({
       title: kind === '经营' ? pick(['GMV达成偏低','ROI波动需关注','预算效率待提升','退货率风险']) :
              kind === '渠道/资源位' ? pick(['搜索效率待提升','推荐CPC偏高','活动ROI偏低','内容承接良好']) :

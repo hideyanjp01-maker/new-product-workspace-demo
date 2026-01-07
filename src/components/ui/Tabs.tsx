@@ -12,9 +12,10 @@ export interface TabsProps {
   activeKey: string
   onChange: (key: string) => void
   className?: string
+  size?: 'small' | 'default' | 'large'
 }
 
-export default function Tabs({ items, activeKey, onChange, className = '' }: TabsProps) {
+export default function Tabs({ items, activeKey, onChange, className = '', size }: TabsProps) {
   return (
     <div className={`ui-tabs ${className}`}>
       <div className="ui-tabs-nav">
@@ -34,6 +35,7 @@ export default function Tabs({ items, activeKey, onChange, className = '' }: Tab
     </div>
   )
 }
+
 
 
 

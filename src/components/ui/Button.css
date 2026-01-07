@@ -85,6 +85,25 @@
   border-color: #ff7875;
 }
 
+/* Outline - 边框+透明背景 */
+.ui-button--outline {
+  background-color: transparent;
+  color: var(--color-text-primary);
+  border-color: var(--color-border);
+}
+
+.ui-button--outline:hover:not(:disabled) {
+  background-color: var(--color-bg-secondary);
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.ui-button--outline:active:not(:disabled) {
+  background-color: var(--color-bg-tertiary);
+  border-color: var(--color-primary-active);
+  color: var(--color-primary-active);
+}
+
 /* 尺寸 */
 .ui-button--small {
   padding: var(--spacing-xs) var(--spacing-sm);
@@ -132,6 +151,7 @@
     transform: rotate(360deg);
   }
 }
+
 
 
 

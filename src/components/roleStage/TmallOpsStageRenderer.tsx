@@ -236,8 +236,8 @@ const RankBars = (cfg: RankBarsConfig) => (
     {cfg.title && <h2 className="section-title">{cfg.title}</h2>}
     <Card padding="large">
       <div className="rank-bars">
-        {cfg.items.map((it, i) => {
-          const max = Math.max(...cfg.items.map(x => x.value))
+        {cfg.items.map((it: { name: string; value: number; unit?: string }, i: number) => {
+          const max = Math.max(...cfg.items.map((x: { value: number }) => x.value))
           const w = max > 0 ? (it.value / max) * 100 : 0
           return (
             <div key={i} className="rank-row">
@@ -479,5 +479,6 @@ export default function TmallOpsStageRenderer({
 }
 
 console.log('[TmallOps] pages ready')
+
 
 

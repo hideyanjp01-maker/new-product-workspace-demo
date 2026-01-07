@@ -1,8 +1,18 @@
 import { useEffect, useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { getProductById, getWorkflowHistory } from '../data/mockData'
-import type { Product, WorkflowHistory } from '../data/mockData'
+import type { Product, WorkflowHistory, ProductStatus } from '../data/mockData'
 import './ProductDetailPage.css'
+
+// 状态映射表
+const statusLabelMap: Record<ProductStatus, string> = {
+  'pending-target': '待设置目标',
+  'pending-brand-confirm': '待品牌确认',
+  'pending-review-target': '待审核目标',
+  'pending-ecommerce-confirm': '待电商确认',
+  'cold-start': '冷启动期',
+  'scaling': '放量期'
+}
 
 export default function ProductDetailPage() {
   const { id } = useParams<{ id: string }>()
@@ -71,9 +81,7 @@ export default function ProductDetailPage() {
               <div className="info-item">
                 <label>状态</label>
                 <span className={`status-badge ${product.status}`}>
-                  {product.status === 'published' ? '已发布' :
-                   product.status === 'reviewing' ? '审核中' :
-                   product.status === 'approved' ? '已审核' : '草稿'}
+                  {statusLabelMap[product.status] || '未知状态'}
                 </span>
               </div>
               <div className="info-item full-width">

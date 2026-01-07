@@ -178,6 +178,16 @@ export interface OperationLogsConfig {
   }>
 }
 
+export interface RankBarsConfig {
+  type: 'rank-bars'
+  title?: string
+  items: Array<{
+    name: string
+    value: number
+    unit?: string
+  }>
+}
+
 export type TmallTrafficStageSectionConfig = 
   | KPICardConfig
   | ChannelContributionTableConfig
@@ -191,6 +201,7 @@ export type TmallTrafficStageSectionConfig =
   | DiagnosisInsightsConfig
   | KanbanBoardConfig
   | OperationLogsConfig
+  | RankBarsConfig
 
 export interface TmallTrafficStageConfig {
   sections: TmallTrafficStageSectionConfig[]

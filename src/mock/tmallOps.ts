@@ -176,7 +176,7 @@ export function genDiagnosis(stage: StageKey, dateA: string, dateB: string) {
   function cards(kind: typeof scenes[number]) {
     const rnd = seededRandom(hashSeed(`tmallOps|diag|${stage}|${kind}|${dateA}|${dateB}`))
     const sev = ['high','medium','low','success'] as const
-    const pick = <T,>(arr: T[]) => arr[Math.floor(rnd()*arr.length)]
+    const pick = <T,>(arr: readonly T[]): T => arr[Math.floor(rnd()*arr.length)]
     
     const templates = {
       '经营诊断': ['GMV达成偏低','ROI波动需关注','预算效率待提升','退货率风险','客单价下降','转化率待优化'],
@@ -302,5 +302,6 @@ export function genLogs(stage: StageKey, dateA: string, dateB: string, count = 8
     operator: operators[i % operators.length]
   }))
 }
+
 
 

@@ -14,8 +14,7 @@ import {
   priceBandOpportunityTable,
   specOpportunityTable,
   sellingPointPriceBandTable,
-  type IdeaCard,
-  type TopOpportunity
+  type IdeaCard
 } from '../../mock/marketInsight'
 import './InsightStagePage.css'
 
@@ -489,7 +488,7 @@ export default function InsightStagePage() {
       {dataState && renderSellingPointPriceBand()}
 
       {/* 临时开关：用于验收空态（开发时可用） */}
-      {process.env.NODE_ENV === 'development' && (
+      {import.meta.env.DEV && (
         <div style={{ position: 'fixed', bottom: '20px', right: '20px', zIndex: 1000, padding: '12px', background: 'white', border: '1px solid #ccc', borderRadius: '4px' }}>
           <label style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '12px' }}>
             <input

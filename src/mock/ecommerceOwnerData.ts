@@ -108,7 +108,7 @@ export function genOverviewKPIs(dateA: string, dateB: string) {
     { label: '总曝光量', metricKey: undefined, value: cur.exposure, unit: '', trend: toTrend(delta(cur.exposure, cmp.exposure)), compareValue: toCmpText(delta(cur.exposure, cmp.exposure)), placeholder: true },
     { label: '总点击量', metricKey: undefined, value: cur.clicks, unit: '', trend: toTrend(delta(cur.clicks, cmp.clicks)), compareValue: toCmpText(delta(cur.clicks, cmp.clicks)), placeholder: true },
     { label: '总CTR', metricKey: '天猫转化率', value: clamp(cur.clicks / Math.max(cur.exposure, 1) * 100, 0, 100), unit: '%', trend: toTrend(delta(cur.clicks / Math.max(cur.exposure, 1), cmp.clicks / Math.max(cmp.exposure, 1))), compareValue: toCmpText(delta(cur.clicks / Math.max(cur.exposure, 1), cmp.clicks / Math.max(cmp.exposure, 1))) },
-    { label: '总CPC', metricKey: undefined, value: cur.cpc || (cur.cost / Math.max(cur.clicks, 1)), unit: '元', trend: 'stable', compareValue: '→0.0%', placeholder: true },
+    { label: '总CPC', metricKey: undefined, value: (cur.cost / Math.max(cur.clicks, 1)), unit: '元', trend: 'stable', compareValue: '→0.0%', placeholder: true },
     { label: '总消耗', metricKey: undefined, value: cur.cost, unit: '元', trend: toTrend(delta(cur.cost, cmp.cost)), compareValue: toCmpText(delta(cur.cost, cmp.cost)), placeholder: true },
     { label: '总CVR', metricKey: undefined, value: clamp(cur.orders / Math.max(cur.clicks, 1) * 100, 0, 100), unit: '%', trend: 'stable', compareValue: '→0.0%', placeholder: true },
     { label: '客单价', metricKey: '客单价', value: cur.orders > 0 ? cur.sales / cur.orders : 0, unit: '元', trend: 'stable', compareValue: '→0.0%' },
@@ -302,7 +302,7 @@ export function genDiagnosis(stage: StageKey, dateA: string, dateB: string) {
   function cards(kind: typeof scenes[number]) {
     const rnd = seededRandom(hashSeed(`ecommerceOwner|diag|${stage}|${kind}|${dateA}|${dateB}`))
     const sev = ['high','medium','low','success'] as const
-    const pick = <T,>(arr: T[]) => arr[Math.floor(rnd()*arr.length)]
+    const pick = <T,>(arr: readonly T[]): T => arr[Math.floor(rnd()*arr.length)]
     
     const templates = {
       '经营诊断': ['全平台GMV达成偏低','ROI波动需关注','预算效率待提升','退货率风险','客单价下降','转化率待优化'],
@@ -420,5 +420,6 @@ export function genLogs(stage: StageKey, dateA: string, dateB: string, count = 8
     operator: operators[i % operators.length]
   }))
 }
+
 
 

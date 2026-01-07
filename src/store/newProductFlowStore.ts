@@ -94,7 +94,7 @@ interface NewProductFlowState {
 }
 
 // 默认电商目标值
-const getDefaultEcommerceTargets = (): PlanningProduct['ecommerceTargets'] => ({
+const getDefaultEcommerceTargets = (): NonNullable<PlanningProduct['ecommerceTargets']> => ({
   targetGMV: 3000000,
   targetBudget: 1200000,
   targetRoiFloor: 2,
@@ -227,20 +227,30 @@ export const useNewProductFlowStore = create<NewProductFlowState>()(
       },
 
       updateEcommerceTargets: (productId: string, partialTargets: Partial<PlanningProduct['ecommerceTargets']>) => {
+        const pt = partialTargets ?? {}
+        const defaultTargets = getDefaultEcommerceTargets()
         set((state) => ({
-          planningProducts: state.planningProducts.map(p =>
-            p.id === productId ? {
+          planningProducts: state.planningProducts.map(p => {
+            if (p.id !== productId) return p
+            const existingTargets = p.ecommerceTargets ?? defaultTargets
+            return {
               ...p,
               ecommerceTargets: {
-                ...(p.ecommerceTargets || getDefaultEcommerceTargets()),
-                ...partialTargets,
+                targetGMV: pt.targetGMV ?? existingTargets.targetGMV,
+                targetBudget: pt.targetBudget ?? existingTargets.targetBudget,
+                targetRoiFloor: pt.targetRoiFloor ?? existingTargets.targetRoiFloor,
+                targetAOV: pt.targetAOV ?? existingTargets.targetAOV,
                 platformShare: {
-                  ...(p.ecommerceTargets?.platformShare || getDefaultEcommerceTargets()!.platformShare),
-                  ...(partialTargets.platformShare || {})
-                }
+                  ...existingTargets.platformShare,
+                  ...(pt.platformShare || {})
+                },
+                launchDate: pt.launchDate ?? existingTargets.launchDate,
+                coldStartGMV: pt.coldStartGMV ?? existingTargets.coldStartGMV,
+                coldStartROI: pt.coldStartROI ?? existingTargets.coldStartROI,
+                coldStartBuyers: pt.coldStartBuyers ?? existingTargets.coldStartBuyers
               }
-            } : p
-          )
+            }
+          })
         }))
       },
 
