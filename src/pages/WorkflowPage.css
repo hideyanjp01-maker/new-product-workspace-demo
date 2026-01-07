@@ -1,0 +1,343 @@
+.workflow-page {
+  padding: 2rem;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.workflow-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.workflow-header h1 {
+  font-size: 2rem;
+  color: #333;
+}
+
+.reset-btn {
+  padding: 0.75rem 1.5rem;
+  background: #fff;
+  color: #666;
+  border: 1px solid #d9d9d9;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.2s;
+}
+
+.reset-btn:hover {
+  background: #f5f5f5;
+  border-color: #999;
+}
+
+.workflow-container {
+  display: grid;
+  grid-template-columns: 400px 1fr;
+  gap: 2rem;
+}
+
+.workflow-steps {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.workflow-step {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.workflow-step.clickable {
+  cursor: pointer;
+}
+
+.workflow-step.clickable:hover .step-content {
+  background: #f0f8ff;
+  border: 2px solid #91d5ff;
+}
+
+.workflow-step:last-child {
+  margin-bottom: 0;
+}
+
+.step-indicator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.step-number {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+  border: 2px solid #d9d9d9;
+  background: #fff;
+  color: #999;
+}
+
+.workflow-step.pending .step-number {
+  border-color: #d9d9d9;
+  background: #fff;
+  color: #999;
+}
+
+.workflow-step.in-progress .step-number {
+  border-color: #1890ff;
+  background: #1890ff;
+  color: #fff;
+}
+
+.workflow-step.completed .step-number {
+  border-color: #52c41a;
+  background: #52c41a;
+  color: #fff;
+}
+
+.workflow-step.failed .step-number {
+  border-color: #f5222d;
+  background: #f5222d;
+  color: #fff;
+}
+
+.step-connector {
+  width: 2px;
+  height: 60px;
+  background: #d9d9d9;
+  margin-top: 0.5rem;
+}
+
+.step-connector.completed {
+  background: #52c41a;
+}
+
+.workflow-step.current .step-content {
+  background: #e6f7ff;
+  border: 2px solid #1890ff;
+}
+
+.step-content {
+  flex: 1;
+  padding: 1rem;
+  border-radius: 6px;
+  background: #f9f9f9;
+  transition: all 0.2s;
+}
+
+.step-content h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.step-content p {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 0.5rem;
+}
+
+.step-data {
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  background: #fff;
+  border-radius: 4px;
+  font-size: 0.85rem;
+}
+
+.step-data pre {
+  margin: 0;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.step-action {
+  margin-top: 0.5rem;
+}
+
+.step-link {
+  color: #1890ff;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.step-navigation {
+  text-align: center;
+  padding: 2rem;
+}
+
+.step-navigation p {
+  margin-bottom: 1.5rem;
+  color: #666;
+}
+
+.workflow-actions {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.current-step-panel h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.current-step-panel > p {
+  color: #666;
+  margin-bottom: 2rem;
+}
+
+.step-form {
+  margin-top: 1.5rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: #333;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #d9d9d9;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-family: inherit;
+  transition: border-color 0.2s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #1890ff;
+}
+
+.form-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.action-btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.2s;
+  flex: 1;
+}
+
+.action-btn.success {
+  background: #52c41a;
+  color: #fff;
+}
+
+.action-btn.success:hover {
+  background: #73d13d;
+}
+
+.action-btn.danger {
+  background: #f5222d;
+  color: #fff;
+}
+
+.action-btn.danger:hover {
+  background: #ff4d4f;
+}
+
+.action-btn.primary {
+  background: #1890ff;
+  color: #fff;
+}
+
+.action-btn.primary:hover {
+  background: #40a9ff;
+}
+
+.step-completed,
+.step-failed {
+  text-align: center;
+  padding: 2rem;
+  margin-top: 1.5rem;
+}
+
+.success-icon,
+.error-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  margin: 0 auto 1rem;
+}
+
+.success-icon {
+  background: #f6ffed;
+  color: #52c41a;
+}
+
+.error-icon {
+  background: #fff2f0;
+  color: #f5222d;
+}
+
+.step-completed p,
+.step-failed p {
+  margin-bottom: 1rem;
+  color: #666;
+}
+
+.navigation-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.nav-btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  border: 1px solid #d9d9d9;
+  background: #fff;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.2s;
+  flex: 1;
+}
+
+.nav-btn:hover {
+  background: #f5f5f5;
+}
+
+.nav-btn.primary {
+  background: #1890ff;
+  color: #fff;
+  border-color: #1890ff;
+}
+
+.nav-btn.primary:hover {
+  background: #40a9ff;
+}
+

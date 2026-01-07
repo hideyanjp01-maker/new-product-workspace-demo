@@ -1,0 +1,41 @@
+.ui-tabs {
+  width: 100%;
+}
+
+.ui-tabs-nav {
+  display: flex;
+  gap: var(--spacing-md);
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+.ui-tabs-tab {
+  position: relative;
+  padding: var(--spacing-md) var(--spacing-lg);
+  font-family: var(--font-family);
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s;
+  outline: none;
+}
+
+.ui-tabs-tab:hover {
+  color: var(--color-text-primary);
+}
+
+.ui-tabs-tab--active {
+  color: var(--color-primary);
+  border-bottom-color: var(--color-primary);
+}
+
+.ui-tabs-content {
+  padding: var(--spacing-lg) 0;
+}
+
+
+
+

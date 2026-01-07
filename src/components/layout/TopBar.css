@@ -1,0 +1,30 @@
+.layout-topbar {
+  flex: 0 0 auto;
+  height: var(--topbar-height);
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-active) 100%);
+  box-shadow: var(--shadow-md);
+  z-index: var(--z-fixed);
+}
+
+.layout-topbar-content {
+  height: 100%;
+  max-width: var(--layout-max-width);
+  margin: 0 auto;
+  padding: 0 var(--spacing-lg);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.layout-topbar-logo {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-bg-primary);
+  letter-spacing: 0.5px;
+}
+
+.layout-topbar-controls {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-lg);
+}

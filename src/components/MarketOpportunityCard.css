@@ -1,0 +1,200 @@
+.market-opportunity-card {
+  padding: var(--spacing-lg, 16px);
+  border-radius: 16px;
+  background-color: var(--color-bg-primary, #ffffff);
+  border: 1px solid #EAEAEA;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md, 12px);
+  height: 100%;
+}
+
+/* (1) 标题行 */
+.opportunity-title {
+  font-size: 16px;
+  font-weight: var(--font-weight-bold, 700);
+  color: var(--color-text-primary, #333333);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* (2) 机会分数行 */
+.opportunity-score-row {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs, 4px);
+  font-size: 14px;
+}
+
+.opportunity-score-label {
+  color: var(--color-text-secondary, #666666);
+}
+
+.opportunity-score-value {
+  color: #5BA64A;
+  font-weight: var(--font-weight-semibold, 600);
+}
+
+/* (3) 证据示例区 */
+.opportunity-evidence {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs, 4px);
+}
+
+.evidence-label {
+  font-size: 14px;
+  color: var(--color-text-secondary, #666666);
+  font-weight: var(--font-weight-medium, 500);
+}
+
+.evidence-examples {
+  font-size: 14px;
+  color: var(--color-text-primary, #333333);
+  line-height: 1.6;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  flex: 1;
+  min-height: 0;
+}
+
+.evidence-item {
+  margin-bottom: 2px;
+}
+
+/* (4) 按钮行 */
+.opportunity-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: auto;
+  padding-top: var(--spacing-xs, 4px);
+}
+
+.evidence-table-btn {
+  min-width: 80px;
+  height: 32px;
+  padding: 0 var(--spacing-md, 12px);
+  border-radius: 16px;
+  background-color: var(--color-bg-primary, #ffffff);
+  border: 1px solid #E0E0E0;
+  color: var(--color-text-primary, #333333);
+  font-size: 14px;
+  font-weight: var(--font-weight-medium, 500);
+  transition: all 0.2s;
+}
+
+.evidence-table-btn:hover {
+  background-color: #F5F5F5;
+  border-color: #D0D0D0;
+}
+
+.evidence-table-btn:active {
+  background-color: #EEEEEE;
+}
+
+.push-product-btn {
+  min-width: 90px;
+  height: 32px;
+  padding: 0 var(--spacing-md, 12px);
+  border-radius: 16px;
+  background-color: var(--color-primary, #5BA64A);
+  border: none;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: var(--font-weight-medium, 500);
+  transition: background-color 0.2s;
+}
+
+.push-product-btn:hover {
+  background-color: #4A8F3A;
+}
+
+.push-product-btn:active {
+  background-color: #3D7830;
+}
+
+.push-product-btn:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.push-product-btn:disabled:hover {
+  background-color: #cccccc;
+}
+
+/* Toast 提示 */
+.push-toast {
+  position: fixed;
+  top: 80px;
+  right: 24px;
+  background-color: #333333;
+  color: #ffffff;
+  padding: var(--spacing-md, 12px) var(--spacing-lg, 16px);
+  border-radius: 8px;
+  font-size: 14px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 10000;
+  animation: toast-slide-in 0.3s ease-out;
+}
+
+@keyframes toast-slide-in {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* 证据表 Modal 内容 */
+.evidence-table-container {
+  max-height: 60vh;
+  overflow-y: auto;
+  margin-top: var(--spacing-md, 12px);
+}
+
+.evidence-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.evidence-table thead {
+  background-color: #F5F7FA;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.evidence-table th {
+  padding: var(--spacing-md, 12px);
+  text-align: left;
+  font-weight: var(--font-weight-semibold, 600);
+  color: var(--color-text-primary, #333333);
+  border-bottom: 2px solid #E0E0E0;
+}
+
+.evidence-table td {
+  padding: var(--spacing-md, 12px);
+  border-bottom: 1px solid #F0F0F0;
+  color: var(--color-text-primary, #333333);
+}
+
+.evidence-table tbody tr:hover {
+  background-color: #F9FAFB;
+}
+
+.evidence-table tbody tr:last-child td {
+  border-bottom: none;
+}
+

@@ -1,0 +1,27 @@
+/* 根容器：固定高度，使用 flex 布局，隐藏溢出 */
+.main-layout {
+  width: 1920px;
+  height: 1080px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+  background-color: var(--color-bg-secondary);
+}
+
+/* 中间 body 容器：包含 SideNav + Content */
+.main-layout-body {
+  flex: 1 1 auto;
+  display: flex;
+  min-height: 0; /* 关键：允许 flex 子项缩小，使 Content 可以滚动 */
+  overflow: hidden;
+}
+
+/* 主内容区：可滚动 */
+.main-layout-content {
+  flex: 1 1 auto;
+  min-width: 0; /* 关键：允许 flex 子项缩小 */
+  overflow-y: auto; /* 让内容区承担纵向滚动 */
+  padding: var(--spacing-lg);
+  background-color: var(--color-bg-secondary);
+}

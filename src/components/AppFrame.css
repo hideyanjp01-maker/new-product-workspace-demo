@@ -1,0 +1,19 @@
+.app-frame-wrapper {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: #f5f5f5;
+}
+
+.app-frame-canvas {
+  position: relative;
+  background: #fff;
+  /* 尺寸和缩放由内联样式控制 */
+}
+
+
+
+

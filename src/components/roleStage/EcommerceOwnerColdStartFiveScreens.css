@@ -1,0 +1,1251 @@
+/* 电商负责人冷启动期5屏样式 */
+
+.ecom-cs-five-screens {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 0;
+}
+
+.ecom-cs-screen {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.ecom-cs-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.ecom-cs-card {
+  background: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.ecom-cs-card-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0 0 16px 0;
+}
+
+.ecom-cs-card-subtitle {
+  font-size: 14px;
+  font-weight: 500;
+  color: #666;
+  margin: 0 0 12px 0;
+}
+
+.ecom-cs-section-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+.ecom-cs-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+/* ==================== 屏1：状态栏 ====================*/
+.ecom-cs-status-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.ecom-cs-status-text {
+  font-size: 16px;
+  color: #333;
+}
+
+.ecom-cs-status-text .highlight {
+  color: #52c41a;
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.ecom-cs-complete-btn {
+  padding: 8px 24px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  background: #52c41a;
+  color: #fff;
+  border: none;
+}
+
+.ecom-cs-complete-btn:hover:not(.completed) {
+  background: #73d13d;
+}
+
+.ecom-cs-complete-btn.completed {
+  background: #f5f5f5;
+  color: #999;
+  border: 1px solid #d9d9d9;
+  cursor: not-allowed;
+}
+
+/* ==================== 屏1：冷启动目标卡 ====================*/
+.ecom-cs-target-card {
+  position: relative;
+}
+
+.ecom-cs-targets {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.ecom-cs-target-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.ecom-cs-target-label {
+  width: 80px;
+  font-size: 14px;
+  color: #666;
+  flex-shrink: 0;
+}
+
+.ecom-cs-target-progress-wrap {
+  flex: 1;
+  position: relative;
+}
+
+.ecom-cs-target-progress {
+  height: 8px;
+  background: #f0f0f0;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.ecom-cs-target-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #52c41a, #73d13d);
+  border-radius: 4px;
+  transition: width 0.3s;
+}
+
+.ecom-cs-target-tooltip {
+  position: absolute;
+  top: -60px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fff;
+  border: 1px solid #e8e8e8;
+  border-radius: 6px;
+  padding: 10px 14px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  min-width: 160px;
+}
+
+.ecom-cs-target-tooltip::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: #fff;
+}
+
+.ecom-cs-target-tooltip .tooltip-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 4px;
+}
+
+.ecom-cs-target-tooltip .tooltip-row:last-child {
+  margin-bottom: 0;
+}
+
+.ecom-cs-target-values {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 13px;
+  min-width: 180px;
+  justify-content: flex-end;
+}
+
+.ecom-cs-target-values .current {
+  color: #52c41a;
+  font-weight: 500;
+}
+
+.ecom-cs-target-values .separator {
+  color: #999;
+}
+
+.ecom-cs-target-values .target {
+  color: #666;
+}
+
+.ecom-cs-target-values .percent {
+  color: #52c41a;
+  font-weight: 600;
+  margin-left: 8px;
+}
+
+/* ==================== 屏1：洞察日志卡 ====================*/
+.ecom-cs-insight-card {
+  background: linear-gradient(135deg, #52c41a 0%, #73d13d 100%);
+  color: #fff;
+}
+
+.ecom-cs-insight-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.ecom-cs-insight-arrow {
+  width: 28px;
+  height: 28px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: #fff;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.ecom-cs-insight-arrow:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.ecom-cs-insight-arrow:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.ecom-cs-insight-date {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.ecom-cs-insight-content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.ecom-cs-insight-item {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.ecom-cs-insight-item .platform {
+  font-weight: 600;
+  margin-right: 4px;
+}
+
+.ecom-cs-insight-footer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 16px;
+}
+
+.ecom-cs-insight-more-btn {
+  padding: 6px 16px;
+  background: #fff;
+  color: #52c41a;
+  border: none;
+  border-radius: 4px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.ecom-cs-insight-more-btn:hover {
+  background: #f6ffed;
+}
+
+/* ==================== 屏1：AIPL人群流转卡 ====================*/
+.ecom-cs-aipl-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.ecom-cs-aipl-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.ecom-cs-aipl-label {
+  width: 70px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.ecom-cs-aipl-label .stage {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.ecom-cs-aipl-label .name {
+  font-size: 13px;
+  color: #666;
+}
+
+.ecom-cs-aipl-bar {
+  flex: 1;
+  height: 16px;
+  background: #f5f5f5;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.ecom-cs-aipl-bar-fill {
+  height: 100%;
+  border-radius: 8px;
+  transition: width 0.3s;
+}
+
+.ecom-cs-aipl-value {
+  width: 70px;
+  text-align: right;
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+}
+
+.ecom-cs-aipl-flows {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.ecom-cs-aipl-flow-pill {
+  padding: 4px 12px;
+  background: #f6ffed;
+  color: #52c41a;
+  border-radius: 12px;
+  font-size: 12px;
+}
+
+/* ==================== 屏1：流量指标卡 ====================*/
+.ecom-cs-traffic-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.ecom-cs-traffic-metric {
+  text-align: center;
+}
+
+.ecom-cs-traffic-metric .metric-label {
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 4px;
+}
+
+.ecom-cs-traffic-metric .metric-value {
+  font-size: 20px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 4px;
+}
+
+.ecom-cs-traffic-metric .metric-delta {
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+}
+
+.ecom-cs-traffic-metric .metric-delta.up {
+  color: #52c41a;
+}
+
+.ecom-cs-traffic-metric .metric-delta.down {
+  color: #ff4d4f;
+}
+
+.ecom-cs-traffic-divider {
+  border-top: 1px dashed #e8e8e8;
+  margin: 16px 0;
+}
+
+.ecom-cs-expand-btn {
+  width: 100%;
+  padding: 8px;
+  background: transparent;
+  border: 1px dashed #d9d9d9;
+  border-radius: 4px;
+  color: #666;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.ecom-cs-expand-btn:hover {
+  border-color: #52c41a;
+  color: #52c41a;
+}
+
+.ecom-cs-traffic-chart {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid #f0f0f0;
+}
+
+.ecom-cs-chart-legend {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 12px;
+  justify-content: center;
+}
+
+.ecom-cs-chart-legend .legend-item {
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.ecom-cs-chart-legend .legend-item::before {
+  content: '';
+  width: 12px;
+  height: 3px;
+  border-radius: 2px;
+}
+
+.ecom-cs-chart-legend .legend-item.douyin::before {
+  background: #ff4d4f;
+}
+
+.ecom-cs-chart-legend .legend-item.tmall::before {
+  background: #ff7a00;
+}
+
+.ecom-cs-chart-legend .legend-item.jd::before {
+  background: #e4393c;
+}
+
+.ecom-cs-chart-area {
+  position: relative;
+}
+
+.ecom-cs-line-chart {
+  width: 100%;
+  height: 100px;
+}
+
+.ecom-cs-chart-xaxis {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: #999;
+  margin-top: 8px;
+}
+
+/* ==================== 屏2：成交指标 ====================*/
+.ecom-cs-sales-card,
+.ecom-cs-efficiency-card {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.ecom-cs-metric-section {
+  padding-bottom: 16px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.ecom-cs-metric-section:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.ecom-cs-metric-section .section-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  margin: 0 0 12px 0;
+}
+
+.ecom-cs-platform-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.ecom-cs-platform-metric {
+  text-align: center;
+}
+
+.ecom-cs-platform-metric .platform-name {
+  font-size: 12px;
+  color: #999;
+  margin-bottom: 4px;
+}
+
+.ecom-cs-platform-metric .platform-value {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 4px;
+}
+
+.ecom-cs-platform-metric .platform-delta {
+  font-size: 12px;
+}
+
+.ecom-cs-platform-metric .platform-delta.up {
+  color: #52c41a;
+}
+
+.ecom-cs-platform-metric .platform-delta.down {
+  color: #ff4d4f;
+}
+
+.ecom-cs-expand-detail-btn {
+  width: 100%;
+  padding: 6px;
+  background: transparent;
+  border: 1px dashed #d9d9d9;
+  border-radius: 4px;
+  color: #999;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.ecom-cs-expand-detail-btn:hover {
+  border-color: #52c41a;
+  color: #52c41a;
+}
+
+.ecom-cs-efficiency-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.ecom-cs-efficiency-metric {
+  text-align: center;
+}
+
+.ecom-cs-efficiency-metric .metric-label {
+  font-size: 12px;
+  color: #999;
+  margin-bottom: 4px;
+}
+
+.ecom-cs-efficiency-metric .metric-value {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 4px;
+}
+
+.ecom-cs-efficiency-metric .metric-delta {
+  font-size: 12px;
+}
+
+.ecom-cs-efficiency-metric .metric-delta.up {
+  color: #52c41a;
+}
+
+.ecom-cs-efficiency-metric .metric-delta.down {
+  color: #ff4d4f;
+}
+
+/* ==================== 屏3：货盘模块 ====================*/
+.ecom-cs-platform-tabs {
+  display: flex;
+  gap: 8px;
+}
+
+.platform-tab {
+  padding: 6px 16px;
+  background: #f5f5f5;
+  border: none;
+  border-radius: 4px;
+  font-size: 13px;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.platform-tab.active {
+  background: #52c41a;
+  color: #fff;
+}
+
+.platform-tab:hover:not(.active) {
+  background: #e8e8e8;
+}
+
+.ecom-cs-product-table-card {
+  overflow: hidden;
+}
+
+.ecom-cs-product-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.ecom-cs-product-table th {
+  background: #f6ffed;
+  padding: 12px 16px;
+  text-align: left;
+  font-size: 13px;
+  font-weight: 500;
+  color: #333;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.ecom-cs-product-table td {
+  padding: 12px 16px;
+  font-size: 13px;
+  color: #666;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.ecom-cs-product-table .product-title {
+  color: #333;
+  font-weight: 500;
+}
+
+.ecom-cs-product-table tr:last-child td {
+  border-bottom: none;
+}
+
+.ecom-cs-compare-row {
+  margin-top: 16px;
+}
+
+.ecom-cs-compare-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.ecom-cs-compare-card .compare-title {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  margin: 0;
+}
+
+.ecom-cs-compare-card .compare-score {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.ecom-cs-compare-card .score-label {
+  font-size: 13px;
+  color: #666;
+  width: 40px;
+}
+
+.ecom-cs-compare-card .score-bar {
+  flex: 1;
+  height: 8px;
+  background: #f0f0f0;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.ecom-cs-compare-card .score-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #fa8c16, #faad14);
+  border-radius: 4px;
+}
+
+.ecom-cs-compare-card .score-value {
+  font-size: 14px;
+  font-weight: 600;
+  color: #fa8c16;
+  width: 60px;
+  text-align: right;
+}
+
+.ecom-cs-compare-card .compare-items {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ecom-cs-compare-card .compare-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ecom-cs-compare-card .item-label {
+  width: 70px;
+  font-size: 12px;
+  color: #666;
+  flex-shrink: 0;
+}
+
+.ecom-cs-compare-card .item-bars {
+  flex: 1;
+  position: relative;
+  height: 12px;
+}
+
+.ecom-cs-compare-card .item-bar {
+  position: absolute;
+  height: 5px;
+  border-radius: 2px;
+  left: 0;
+}
+
+.ecom-cs-compare-card .item-bar.mine {
+  top: 0;
+  background: #52c41a;
+}
+
+.ecom-cs-compare-card .item-bar.benchmark {
+  bottom: 0;
+  background: #d9d9d9;
+}
+
+.ecom-cs-compare-card .item-score {
+  width: 30px;
+  font-size: 12px;
+  color: #333;
+  text-align: right;
+}
+
+.ecom-cs-compare-card .compare-legend {
+  display: flex;
+  gap: 16px;
+  justify-content: flex-end;
+  font-size: 11px;
+  color: #999;
+}
+
+.ecom-cs-compare-card .legend-mine::before,
+.ecom-cs-compare-card .legend-benchmark::before {
+  content: '';
+  display: inline-block;
+  width: 12px;
+  height: 4px;
+  border-radius: 2px;
+  margin-right: 4px;
+  vertical-align: middle;
+}
+
+.ecom-cs-compare-card .legend-mine::before {
+  background: #52c41a;
+}
+
+.ecom-cs-compare-card .legend-benchmark::before {
+  background: #d9d9d9;
+}
+
+/* ==================== 屏4：诊断归因模块 ====================*/
+.ecom-cs-diagnosis-tabs {
+  display: flex;
+  gap: 4px;
+}
+
+.diagnosis-tab {
+  padding: 6px 16px;
+  background: transparent;
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+  font-size: 13px;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.diagnosis-tab.active {
+  background: #52c41a;
+  border-color: #52c41a;
+  color: #fff;
+}
+
+.diagnosis-tab:hover:not(.active) {
+  border-color: #52c41a;
+  color: #52c41a;
+}
+
+.ecom-cs-diagnosis-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.ecom-cs-diagnosis-card {
+  padding: 16px;
+  border-radius: 8px;
+  background: #fff;
+  border: 1px solid #f0f0f0;
+}
+
+.ecom-cs-diagnosis-card.severity-error {
+  border-left: 3px solid #ff4d4f;
+}
+
+.ecom-cs-diagnosis-card.severity-warning {
+  border-left: 3px solid #faad14;
+}
+
+.ecom-cs-diagnosis-card.severity-success {
+  border-left: 3px solid #52c41a;
+}
+
+.diagnosis-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 8px;
+}
+
+.diagnosis-card-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.severity-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.severity-dot.error {
+  background: #ff4d4f;
+}
+
+.severity-dot.warning {
+  background: #faad14;
+}
+
+.severity-dot.success {
+  background: #52c41a;
+}
+
+.diagnosis-title {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+}
+
+.diagnosis-tag {
+  padding: 2px 8px;
+  background: #f5f5f5;
+  border-radius: 4px;
+  font-size: 11px;
+  color: #666;
+}
+
+.diagnosis-desc {
+  font-size: 13px;
+  color: #666;
+  line-height: 1.5;
+  margin: 0 0 8px 0;
+}
+
+.diagnosis-pills {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.diagnosis-pill {
+  padding: 2px 8px;
+  background: #f6ffed;
+  border-radius: 10px;
+  font-size: 11px;
+  color: #52c41a;
+}
+
+.diagnosis-suggestions {
+  margin: 0 0 12px 0;
+  padding-left: 16px;
+  font-size: 12px;
+  color: #666;
+  line-height: 1.8;
+}
+
+.diagnosis-action-btn {
+  width: 100%;
+  padding: 6px;
+  background: #fff;
+  border: 1px solid #52c41a;
+  border-radius: 4px;
+  color: #52c41a;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.diagnosis-action-btn:hover {
+  background: #f6ffed;
+}
+
+.ecom-cs-severity-legend {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.ecom-cs-severity-legend .legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: #666;
+}
+
+.ecom-cs-severity-legend .legend-item .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.ecom-cs-severity-legend .legend-item.success .dot {
+  background: #52c41a;
+}
+
+.ecom-cs-severity-legend .legend-item.warning .dot {
+  background: #faad14;
+}
+
+.ecom-cs-severity-legend .legend-item.error .dot {
+  background: #ff4d4f;
+}
+
+.ecom-cs-role-attribution {
+  margin-top: 16px;
+}
+
+.role-attribution-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.attribution-select {
+  padding: 6px 12px;
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+  font-size: 13px;
+  color: #333;
+  background: #fff;
+}
+
+.role-tabs {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+.role-tab {
+  padding: 4px 10px;
+  background: #f5f5f5;
+  border: none;
+  border-radius: 4px;
+  font-size: 12px;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.role-tab.active {
+  background: #52c41a;
+  color: #fff;
+}
+
+.role-tab:hover:not(.active) {
+  background: #e8e8e8;
+}
+
+.ecom-cs-attribution-detail-card {
+  background: #fafafa;
+}
+
+.attribution-bullets {
+  margin: 0;
+  padding-left: 20px;
+  font-size: 13px;
+  color: #666;
+  line-height: 2;
+}
+
+/* ==================== 屏5：任务模块 ====================*/
+.task-header-left {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.task-stats {
+  display: flex;
+  gap: 16px;
+  font-size: 13px;
+  color: #666;
+}
+
+.task-stats strong {
+  color: #333;
+}
+
+.task-stats .overdue {
+  color: #ff4d4f;
+}
+
+.task-tabs {
+  display: flex;
+  gap: 4px;
+}
+
+.task-tab {
+  padding: 6px 16px;
+  background: #f5f5f5;
+  border: none;
+  border-radius: 4px;
+  font-size: 13px;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.task-tab.active {
+  background: #52c41a;
+  color: #fff;
+}
+
+.task-tab:hover:not(.active) {
+  background: #e8e8e8;
+}
+
+.ecom-cs-task-kanban {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.kanban-column {
+  background: #fafafa;
+  border-radius: 8px;
+  padding: 12px;
+  min-height: 300px;
+}
+
+.kanban-column-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.column-title {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+}
+
+.overdue-badge {
+  font-size: 11px;
+  color: #ff4d4f;
+  background: #fff1f0;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.kanban-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.kanban-card {
+  background: #fff;
+  border-radius: 6px;
+  padding: 12px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+  cursor: grab;
+  transition: all 0.2s;
+  position: relative;
+}
+
+.kanban-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.kanban-card:active {
+  cursor: grabbing;
+}
+
+.kanban-card.overdue {
+  border-left: 3px solid #ff4d4f;
+}
+
+.kanban-card.done {
+  opacity: 0.7;
+}
+
+.kanban-card .card-title {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 4px;
+}
+
+.kanban-card .card-desc {
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+
+.kanban-card .card-date {
+  font-size: 11px;
+  color: #999;
+}
+
+.kanban-card .card-date.overdue {
+  color: #ff4d4f;
+}
+
+.task-tooltip {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: #fff;
+  border: 1px solid #e8e8e8;
+  border-radius: 6px;
+  padding: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 100;
+  margin-top: 4px;
+}
+
+.task-tooltip .tooltip-title {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 4px;
+}
+
+.task-tooltip .tooltip-desc {
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.task-tooltip .tooltip-date {
+  font-size: 11px;
+  color: #999;
+}
+
+.drop-zone {
+  border: 2px dashed #52c41a;
+  border-radius: 6px;
+  padding: 24px;
+  text-align: center;
+  color: #52c41a;
+  font-size: 13px;
+  background: #f6ffed;
+}
+
+.ecom-cs-operation-logs {
+  margin-top: 16px;
+}
+
+.logs-toggle-btn {
+  width: 100%;
+  padding: 10px;
+  background: #fafafa;
+  border: 1px solid #e8e8e8;
+  border-radius: 6px;
+  font-size: 14px;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.logs-toggle-btn:hover {
+  background: #f0f0f0;
+}
+
+.ecom-cs-logs-card {
+  margin-top: 8px;
+}
+
+.logs-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.log-item {
+  display: flex;
+  gap: 16px;
+  font-size: 13px;
+  padding: 8px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.log-item:last-child {
+  border-bottom: none;
+}
+
+.log-time {
+  color: #999;
+  width: 140px;
+  flex-shrink: 0;
+}
+
+.log-action {
+  color: #333;
+  flex: 1;
+}
+
+.log-operator {
+  color: #666;
+  width: 60px;
+  text-align: right;
+}
+

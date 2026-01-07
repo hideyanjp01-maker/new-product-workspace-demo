@@ -1,0 +1,625 @@
+.stage-section-renderer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl, 24px);
+}
+
+.stage-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md, 12px);
+}
+
+.section-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--color-text-primary, #333333);
+  margin: 0;
+}
+
+/* KPI 卡片 */
+.kpi-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: var(--spacing-lg, 16px);
+}
+
+.kpi-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs, 4px);
+}
+
+.kpi-card-label {
+  font-size: 14px;
+  color: var(--color-text-secondary, #666666);
+}
+
+.kpi-card-value {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--color-text-primary, #333333);
+}
+
+/* 平台拆分表格 */
+.platform-table-container {
+  overflow-x: auto;
+}
+
+.platform-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.platform-table thead {
+  background-color: #f5f7fa;
+}
+
+.platform-table th {
+  padding: var(--spacing-md, 12px);
+  text-align: left;
+  font-weight: 600;
+  color: var(--color-text-primary, #333333);
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.platform-table td {
+  padding: var(--spacing-md, 12px);
+  border-bottom: 1px solid #f0f0f0;
+  color: var(--color-text-primary, #333333);
+}
+
+.platform-table tbody tr:hover {
+  background-color: #f9fafb;
+}
+
+/* 漏斗 */
+.funnel-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md, 12px);
+}
+
+.funnel-step {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-md, 12px);
+  background-color: #f9fafb;
+  border-radius: 4px;
+}
+
+.funnel-step-label {
+  font-size: 14px;
+  color: var(--color-text-secondary, #666666);
+}
+
+.funnel-step-value {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-text-primary, #333333);
+}
+
+/* 异动监控 */
+.anomaly-alert-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md, 12px);
+}
+
+.anomaly-alert-item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md, 12px);
+  padding: var(--spacing-sm, 8px) 0;
+}
+
+.anomaly-label {
+  font-size: 14px;
+  color: var(--color-text-secondary, #666666);
+  min-width: 100px;
+}
+
+.anomaly-value {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-text-primary, #333333);
+  flex: 1;
+}
+
+.anomaly-change-type {
+  font-size: 12px;
+  color: var(--color-text-tertiary, #999999);
+}
+
+/* 目标进度 */
+.target-progress-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg, 16px);
+}
+
+.target-progress-item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs, 4px);
+}
+
+.target-progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.target-label {
+  font-size: 14px;
+  color: var(--color-text-secondary, #666666);
+}
+
+.target-value {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-text-primary, #333333);
+}
+
+.target-progress-bar {
+  height: 8px;
+  background-color: #f0f0f0;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.target-progress-fill {
+  height: 100%;
+  background-color: #52c41a;
+  transition: width 0.3s;
+}
+
+.target-progress-percent {
+  font-size: 12px;
+  color: var(--color-text-tertiary, #999999);
+  text-align: right;
+}
+
+/* 效率面板 */
+.efficiency-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: var(--spacing-lg, 16px);
+}
+
+.efficiency-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs, 4px);
+}
+
+.efficiency-label {
+  font-size: 14px;
+  color: var(--color-text-secondary, #666666);
+}
+
+.efficiency-value {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--color-text-primary, #333333);
+}
+
+/* 行动建议 */
+.action-suggestions-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md, 12px);
+}
+
+.action-suggestion-item {
+  padding: var(--spacing-md, 12px);
+  background-color: #f9fafb;
+  border-radius: 4px;
+  font-size: 14px;
+  color: var(--color-text-primary, #333333);
+  border-left: 3px solid #52c41a;
+}
+
+/* 目标节奏 */
+.pacing-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg, 16px);
+}
+
+.pacing-item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs, 4px);
+}
+
+.pacing-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pacing-label {
+  font-size: 14px;
+  color: var(--color-text-secondary, #666666);
+}
+
+.pacing-value {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-text-primary, #333333);
+}
+
+.pacing-bar {
+  height: 8px;
+  background-color: #f0f0f0;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.pacing-fill {
+  height: 100%;
+  background-color: #52c41a;
+  transition: width 0.3s;
+}
+
+/* 诊断 */
+.diagnosis-funnel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md, 12px);
+  margin-bottom: var(--spacing-lg, 16px);
+}
+
+.diagnosis-step {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-md, 12px);
+  background-color: #f9fafb;
+  border-radius: 4px;
+}
+
+.diagnosis-step-label {
+  font-size: 14px;
+  color: var(--color-text-secondary, #666666);
+}
+
+.diagnosis-step-value {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-text-primary, #333333);
+}
+
+.diagnosis-risks {
+  margin-top: var(--spacing-lg, 16px);
+  padding-top: var(--spacing-lg, 16px);
+  border-top: 1px solid #f0f0f0;
+}
+
+.diagnosis-risks-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-text-primary, #333333);
+  margin: 0 0 var(--spacing-md, 12px) 0;
+}
+
+.diagnosis-risk-item {
+  padding: var(--spacing-sm, 8px) 0;
+  font-size: 14px;
+  color: #ff4d4f;
+}
+
+/* 空状态 */
+.empty-state {
+  text-align: center;
+  padding: var(--spacing-xl, 24px);
+  color: var(--color-text-secondary, #666666);
+}
+
+.empty-state p {
+  margin: 0;
+}
+
+/* 平台漏斗小卡 */
+.platform-funnel-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--spacing-lg, 16px);
+}
+
+.platform-funnel-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-text-primary, #333333);
+  margin: 0 0 var(--spacing-md, 12px) 0;
+}
+
+.platform-funnel-steps {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm, 8px);
+}
+
+.platform-funnel-step {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs, 4px);
+}
+
+.platform-funnel-step-label {
+  font-size: 12px;
+  color: var(--color-text-secondary, #666666);
+}
+
+.platform-funnel-step-bar {
+  height: 24px;
+  background: linear-gradient(90deg, #1890ff 0%, #52c41a 100%);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 60px;
+  transition: width 0.3s;
+}
+
+.platform-funnel-step-value {
+  font-size: 12px;
+  font-weight: 600;
+  color: #fff;
+}
+
+/* AI 洞察摘要（绿底卡片） */
+.ai-insight-summary-card {
+  background-color: #52c41a;
+  color: #fff;
+  border: none;
+}
+
+.insight-date {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: var(--spacing-md, 12px);
+  text-align: right;
+}
+
+.insight-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm, 8px);
+  margin-bottom: var(--spacing-md, 12px);
+}
+
+.insight-item {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #fff;
+}
+
+.insight-action {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.insight-button {
+  padding: 6px 16px;
+  background-color: #fff;
+  color: #52c41a;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.insight-button:hover {
+  opacity: 0.9;
+}
+
+/* AI 诊断卡片 */
+.ai-diagnosis-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--spacing-lg, 16px);
+}
+
+.ai-diagnosis-card {
+  border-left: 4px solid;
+}
+
+.ai-diagnosis-card--high {
+  border-left-color: #ff4d4f;
+}
+
+.ai-diagnosis-card--medium {
+  border-left-color: #faad14;
+}
+
+.ai-diagnosis-card--low {
+  border-left-color: #1890ff;
+}
+
+.ai-diagnosis-card--success {
+  border-left-color: #52c41a;
+}
+
+.ai-diagnosis-header {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs, 4px);
+  margin-bottom: var(--spacing-sm, 8px);
+}
+
+.ai-diagnosis-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.ai-diagnosis-dot--high {
+  background-color: #ff4d4f;
+}
+
+.ai-diagnosis-dot--medium {
+  background-color: #faad14;
+}
+
+.ai-diagnosis-dot--low {
+  background-color: #1890ff;
+}
+
+.ai-diagnosis-dot--success {
+  background-color: #52c41a;
+}
+
+.ai-diagnosis-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.ai-diagnosis-conclusion {
+  font-size: 14px;
+  color: var(--color-text-secondary, #666666);
+  margin-bottom: var(--spacing-sm, 8px);
+}
+
+.ai-diagnosis-suggestions {
+  list-style: disc;
+  padding-left: 20px;
+  margin: 0;
+  font-size: 14px;
+  color: var(--color-text-secondary, #666666);
+  line-height: 1.6;
+}
+
+.ai-diagnosis-suggestions li {
+  margin-bottom: var(--spacing-xs, 4px);
+}
+
+/* 任务看板 */
+.kanban-board-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-md, 12px);
+}
+
+.kanban-column {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm, 8px);
+}
+
+.kanban-column-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-sm, 8px);
+  background-color: #fafafa;
+  border-radius: 4px;
+}
+
+.kanban-column-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.kanban-column-count {
+  font-size: 14px;
+  color: var(--color-text-secondary, #666666);
+  background-color: #fff;
+  padding: 2px 8px;
+  border-radius: 12px;
+}
+
+.kanban-cards {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm, 8px);
+  min-height: 200px;
+}
+
+.kanban-card {
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.kanban-card:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.kanban-card-title {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: var(--spacing-xs, 4px);
+}
+
+.kanban-card-deadline {
+  font-size: 12px;
+  color: var(--color-text-secondary, #666666);
+  margin-top: var(--spacing-xs, 4px);
+}
+
+.kanban-card-assignee {
+  font-size: 12px;
+  color: var(--color-text-secondary, #666666);
+  margin-top: var(--spacing-xs, 4px);
+}
+
+/* 操作记录 */
+.operation-logs-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm, 8px);
+  background-color: #fafafa;
+  padding: var(--spacing-md, 12px);
+  border-radius: 4px;
+}
+
+.operation-log-item {
+  display: flex;
+  gap: var(--spacing-md, 12px);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.log-time {
+  color: var(--color-text-secondary, #666666);
+  min-width: 140px;
+}
+
+.log-action {
+  color: var(--color-text-primary, #333333);
+  flex: 1;
+}
+
+/* 目标进度 + AI洞察摘要并排布局 */
+.target-progress-with-insight-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-lg, 16px);
+  margin-bottom: var(--spacing-xl, 24px);
+}
+
+.target-progress-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.target-progress-wrapper .section-title {
+  margin-bottom: var(--spacing-md, 12px);
+}
+
+.ai-insight-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.ai-insight-wrapper .section-title {
+  margin-bottom: var(--spacing-md, 12px);
+}
+

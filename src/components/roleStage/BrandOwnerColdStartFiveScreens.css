@@ -1,0 +1,971 @@
+.brand-owner-cold-start-five-screens {
+  padding: 20px 0;
+}
+
+/* 屏1：冷启动目标 + 洞察日志 */
+.screen-1-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 32px;
+}
+
+.target-progress-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.target-progress-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.target-progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.target-label {
+  font-size: 14px;
+  color: #333;
+  font-weight: 500;
+}
+
+.target-value {
+  font-size: 14px;
+  color: #666;
+}
+
+.target-progress-bar {
+  height: 8px;
+  background: #f0f0f0;
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+}
+
+.target-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #4caf50, #66bb6a);
+  transition: width 0.3s;
+}
+
+.target-progress-percent {
+  font-size: 12px;
+  color: #666;
+  text-align: right;
+}
+
+.insight-log-card {
+  background: #f0f9f0;
+  border: 1px solid #4caf50;
+}
+
+.insight-log-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.insight-date-nav {
+  background: none;
+  border: 1px solid #4caf50;
+  color: #4caf50;
+  width: 32px;
+  height: 32px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.insight-date-nav:hover {
+  background: #4caf50;
+  color: white;
+}
+
+.insight-date {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+}
+
+.insight-log-content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.insight-log-item {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+}
+
+.insight-platform {
+  font-weight: 600;
+  color: #4caf50;
+}
+
+.insight-metric {
+  font-weight: 500;
+}
+
+.insight-change {
+  font-weight: 600;
+  color: #4caf50;
+}
+
+.insight-change.negative {
+  color: #f44336;
+}
+
+.insight-reason {
+  color: #666;
+}
+
+.insight-log-footer {
+  text-align: right;
+}
+
+.insight-more-btn {
+  padding: 6px 16px;
+  background: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/* 屏2：关键指标 */
+.screen-2-container {
+  margin-bottom: 32px;
+}
+
+.key-metric-group {
+  margin-bottom: 24px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.key-metric-group:last-child {
+  border-bottom: none;
+}
+
+.key-metric-header {
+  margin-bottom: 16px;
+}
+
+.key-metric-name {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+}
+
+.key-metric-platforms {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.key-metric-platform {
+  text-align: center;
+}
+
+.key-metric-value {
+  font-size: 24px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 4px;
+}
+
+.key-metric-delta {
+  font-size: 12px;
+  color: #4caf50;
+}
+
+.key-metric-delta.negative {
+  color: #f44336;
+}
+
+.key-metric-expand {
+  text-align: center;
+  padding: 8px;
+  border: 1px dashed #ccc;
+  border-radius: 4px;
+  color: #666;
+  cursor: pointer;
+  font-size: 12px;
+  transition: all 0.2s;
+}
+
+.key-metric-expand:hover {
+  border-color: #4caf50;
+  color: #4caf50;
+}
+
+.key-metric-charts {
+  margin-top: 16px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.key-metric-bar-chart h4,
+.key-metric-trend-chart h4 {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: #333;
+}
+
+.bar-chart-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.bar-chart-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.bar-label {
+  width: 60px;
+  font-size: 12px;
+  color: #666;
+}
+
+.bar-container {
+  flex: 1;
+  height: 24px;
+  background: #f0f0f0;
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+}
+
+.bar-fill {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 8px;
+  transition: width 0.3s;
+}
+
+.bar-fill-douyin {
+  background: linear-gradient(90deg, #ff6b6b, #ff8787);
+}
+
+.bar-fill-tmall {
+  background: linear-gradient(90deg, #4ecdc4, #6edcd4);
+}
+
+.bar-fill-jd {
+  background: linear-gradient(90deg, #45b7d1, #6bc5d8);
+}
+
+.bar-value {
+  font-size: 12px;
+  color: white;
+  font-weight: 600;
+}
+
+.trend-chart-container {
+  padding: 12px;
+}
+
+.trend-legend {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 12px;
+  font-size: 12px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.legend-douyin::before {
+  content: '';
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  background: #ff6b6b;
+  border-radius: 2px;
+}
+
+.legend-tmall::before {
+  content: '';
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  background: #4ecdc4;
+  border-radius: 2px;
+}
+
+.legend-jd::before {
+  content: '';
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  background: #45b7d1;
+  border-radius: 2px;
+}
+
+.trend-lines {
+  display: flex;
+  gap: 8px;
+  align-items: flex-end;
+  height: 120px;
+}
+
+.trend-point {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.trend-date {
+  font-size: 10px;
+  color: #999;
+}
+
+.trend-values {
+  display: flex;
+  gap: 2px;
+  width: 100%;
+  height: 100px;
+  align-items: flex-end;
+}
+
+.trend-value {
+  flex: 1;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 4px;
+  font-size: 10px;
+  color: white;
+  font-weight: 600;
+  min-height: 20px;
+  transition: height 0.3s;
+}
+
+.trend-douyin {
+  background: #ff6b6b;
+}
+
+.trend-tmall {
+  background: #4ecdc4;
+}
+
+.trend-jd {
+  background: #45b7d1;
+}
+
+/* 屏3：经营洞察 + VS卡 + 消费者画像 */
+.screen-3-container {
+  margin-bottom: 32px;
+}
+
+.operation-insight-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.insight-note {
+  font-size: 12px;
+  color: #999;
+}
+
+.operation-insight-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.operation-insight-table th,
+.operation-insight-table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.operation-insight-table th {
+  background: #f5f5f5;
+  font-weight: 600;
+  color: #333;
+}
+
+.operation-insight-table tr:hover {
+  background: #f9f9f9;
+}
+
+.summary-row {
+  background: #f5f5f5;
+  font-weight: 600;
+}
+
+.vs-cards-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-bottom: 32px;
+}
+
+.vs-card {
+  border: 1px solid #e0e0e0;
+}
+
+.vs-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.vs-card-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+  color: #333;
+}
+
+.vs-card-score {
+  font-size: 18px;
+  font-weight: 600;
+  color: #4caf50;
+}
+
+.vs-card-progress {
+  height: 8px;
+  background: #f0f0f0;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+
+.vs-card-progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #4caf50, #66bb6a);
+  transition: width 0.3s;
+}
+
+.vs-card-chart {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.vs-dimension-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.vs-dimension-label {
+  width: 100px;
+  font-size: 12px;
+  color: #666;
+}
+
+.vs-dimension-bar {
+  flex: 1;
+  height: 20px;
+  background: #f0f0f0;
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+}
+
+.vs-dimension-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #4caf50, #66bb6a);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 8px;
+  transition: width 0.3s;
+}
+
+.vs-dimension-value {
+  font-size: 12px;
+  color: white;
+  font-weight: 600;
+}
+
+.consumer-profile-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.consumer-profile-content {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.profile-gender h4,
+.profile-age h4,
+.profile-region h4 {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: #333;
+}
+
+.gender-chart {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.gender-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.gender-label {
+  width: 40px;
+  font-size: 12px;
+  color: #666;
+}
+
+.gender-bar {
+  flex: 1;
+  height: 24px;
+  background: #f0f0f0;
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+}
+
+.gender-fill {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 8px;
+  font-size: 12px;
+  color: white;
+  font-weight: 600;
+  transition: width 0.3s;
+}
+
+.gender-male {
+  background: linear-gradient(90deg, #4a90e2, #6ba3e8);
+}
+
+.gender-female {
+  background: linear-gradient(90deg, #f5a623, #f7b84d);
+}
+
+.age-chart {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.age-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.age-label {
+  width: 60px;
+  font-size: 12px;
+  color: #666;
+}
+
+.age-bar {
+  flex: 1;
+  height: 20px;
+  background: #f0f0f0;
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+}
+
+.age-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #4caf50, #66bb6a);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 8px;
+  font-size: 12px;
+  color: white;
+  font-weight: 600;
+  transition: width 0.3s;
+}
+
+.region-chart {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.region-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.region-label {
+  width: 60px;
+  font-size: 12px;
+  color: #666;
+}
+
+.region-bar {
+  flex: 1;
+  height: 20px;
+  background: #f0f0f0;
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+}
+
+.region-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #4caf50, #66bb6a);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 8px;
+  transition: width 0.3s;
+}
+
+.region-value {
+  font-size: 12px;
+  color: white;
+  font-weight: 600;
+}
+
+/* 屏4：诊断归因 */
+.screen-4-container {
+  margin-bottom: 32px;
+}
+
+.diagnosis-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.diagnosis-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.diagnosis-card {
+  border-left: 4px solid;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.diagnosis-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.diagnosis-card--normal {
+  border-left-color: #4caf50;
+}
+
+.diagnosis-card--attention {
+  border-left-color: #ff9800;
+}
+
+.diagnosis-card--high-risk {
+  border-left-color: #f44336;
+}
+
+.diagnosis-card-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.diagnosis-severity-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.diagnosis-severity-dot--normal {
+  background: #4caf50;
+}
+
+.diagnosis-severity-dot--attention {
+  background: #ff9800;
+}
+
+.diagnosis-severity-dot--high-risk {
+  background: #f44336;
+}
+
+.diagnosis-card-title {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0;
+  color: #333;
+  flex: 1;
+}
+
+.diagnosis-card-tag {
+  font-size: 11px;
+  padding: 2px 6px;
+  background: #f0f0f0;
+  border-radius: 12px;
+  color: #666;
+}
+
+.diagnosis-card-desc {
+  font-size: 13px;
+  color: #666;
+  line-height: 1.5;
+  margin-bottom: 8px;
+}
+
+.diagnosis-card-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.diagnosis-chip {
+  padding: 2px 8px;
+  background: #e8f5e9;
+  color: #4caf50;
+  border-radius: 12px;
+  font-size: 11px;
+}
+
+.diagnosis-card-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.diagnosis-action-item {
+  font-size: 12px;
+  color: #666;
+  line-height: 1.5;
+}
+
+.diagnosis-legend {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  padding-top: 16px;
+  border-top: 1px solid #f0f0f0;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: #666;
+}
+
+.legend-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.legend-dot-normal {
+  background: #4caf50;
+}
+
+.legend-dot-attention {
+  background: #ff9800;
+}
+
+.legend-dot-high-risk {
+  background: #f44336;
+}
+
+/* 屏5：任务看板 */
+.screen-5-container {
+  margin-bottom: 32px;
+}
+
+.task-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.task-stats {
+  font-size: 14px;
+  color: #666;
+}
+
+.task-export-btn {
+  padding: 6px 12px;
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  color: #666;
+}
+
+.task-kanban {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.task-column {
+  background: #f9f9f9;
+  border-radius: 8px;
+  padding: 16px;
+  min-height: 400px;
+}
+
+.task-column-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.task-column-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+  color: #333;
+}
+
+.task-overdue-badge {
+  font-size: 11px;
+  padding: 2px 6px;
+  background: #f44336;
+  color: white;
+  border-radius: 12px;
+}
+
+.task-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.task-card {
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.task-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.task-card-title {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #333;
+}
+
+.task-card-desc {
+  font-size: 12px;
+  color: #666;
+  line-height: 1.5;
+  margin-bottom: 8px;
+}
+
+.task-card-date {
+  font-size: 12px;
+  color: #666;
+}
+
+.task-card-date.overdue {
+  color: #f44336;
+  font-weight: 600;
+}
+
+.task-tooltip {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin-top: 8px;
+  padding: 12px;
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 100;
+  min-width: 200px;
+}
+
+.tooltip-title {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #333;
+}
+
+.tooltip-desc {
+  font-size: 12px;
+  color: #666;
+  line-height: 1.5;
+  margin-bottom: 6px;
+}
+
+.tooltip-date {
+  font-size: 12px;
+  color: #999;
+}
+
+.task-drop-placeholder {
+  height: 40px;
+  border: 2px dashed #4caf50;
+  border-radius: 4px;
+  background: #f0f9f0;
+  margin-top: 8px;
+}
+
+.section-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0 0 16px 0;
+  color: #333;
+}
+

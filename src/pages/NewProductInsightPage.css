@@ -1,0 +1,111 @@
+.new-product-insight-page {
+  padding: 2rem;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.page-header {
+  margin-bottom: 2rem;
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 1rem;
+  color: #1890ff;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.2s;
+}
+
+.back-link:hover {
+  color: #40a9ff;
+}
+
+.page-header h1 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.page-header p {
+  font-size: 1.1rem;
+  color: #666;
+  margin: 0;
+}
+
+.insight-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.insight-card {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.insight-card h2 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.insight-card p {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 1rem;
+}
+
+.insight-card ul {
+  list-style: disc;
+  padding-left: 2rem;
+  color: #666;
+}
+
+.insight-card li {
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+}
+
+.action-section {
+  display: flex;
+  justify-content: flex-start;
+  padding: 2rem 0;
+}
+
+.action-btn {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.2s;
+  font-weight: 500;
+}
+
+.action-btn.primary {
+  background: #1890ff;
+  color: white;
+}
+
+.action-btn.primary:hover {
+  background: #40a9ff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(24, 144, 255, 0.3);
+}
+
+.action-btn.secondary {
+  background: #f0f0f0;
+  color: #333;
+}
+
+.action-btn.secondary:hover {
+  background: #e0e0e0;
+}
+

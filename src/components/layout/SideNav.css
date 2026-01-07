@@ -1,0 +1,115 @@
+.layout-sidenav {
+  flex: 0 0 auto; /* 固定宽度，不伸缩 */
+  width: var(--sidebar-width);
+  background-color: var(--color-bg-primary);
+  border-right: 1px solid var(--color-border-light);
+  display: flex;
+  flex-direction: column;
+  z-index: var(--z-sticky);
+  overflow: hidden; /* 隐藏侧边栏容器的溢出 */
+}
+
+.layout-sidenav-nav {
+  flex: 1;
+  padding: var(--spacing-md) 0;
+  overflow-y: auto; /* 侧边栏导航区域自身可滚动 */
+  min-height: 0; /* 关键：允许 flex 子项缩小 */
+}
+
+.layout-sidenav-item {
+  display: block;
+  padding: var(--spacing-md) var(--spacing-lg);
+  font-size: var(--font-size-md);
+  color: var(--color-text-primary);
+  text-decoration: none;
+  transition: all 0.2s;
+  border-left: 3px solid transparent;
+}
+
+.layout-sidenav-item:hover {
+  background-color: var(--color-bg-secondary);
+  color: var(--color-primary);
+}
+
+.layout-sidenav-item--active {
+  background-color: var(--color-primary-lighter);
+  color: var(--color-primary);
+  border-left-color: var(--color-primary);
+  font-weight: var(--font-weight-medium);
+}
+
+.layout-sidenav-footer {
+  flex: 0 0 auto; /* 固定高度，不伸缩 */
+  padding: var(--spacing-lg);
+  border-top: 1px solid var(--color-border-light);
+  background-color: var(--color-bg-secondary);
+}
+
+.layout-sidenav-switch {
+  display: flex;
+  gap: var(--spacing-xs);
+  margin-bottom: var(--spacing-lg);
+  background-color: var(--color-bg-primary);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-lg);
+  padding: 2px;
+}
+
+.layout-sidenav-switch-btn {
+  flex: 1;
+  padding: var(--spacing-sm) var(--spacing-md);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.layout-sidenav-switch-btn:hover {
+  color: var(--color-text-primary);
+}
+
+.layout-sidenav-switch-btn--active {
+  background-color: var(--color-primary);
+  color: var(--color-bg-primary);
+}
+
+.layout-sidenav-dates {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.layout-sidenav-date-label {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.layout-sidenav-date-values {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-primary);
+  font-weight: var(--font-weight-medium);
+}
+
+.layout-sidenav-date-btn {
+  padding: var(--spacing-xs) var(--spacing-sm);
+  font-size: var(--font-size-xs);
+  color: var(--color-primary);
+  background: transparent;
+  border: 1px solid var(--color-primary);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all 0.2s;
+  align-self: flex-start;
+  margin-top: var(--spacing-xs);
+}
+
+.layout-sidenav-date-btn:hover {
+  background-color: var(--color-primary-lighter);
+}

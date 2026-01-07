@@ -1,0 +1,16 @@
+.role-switcher {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.role-switcher-label {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-bg-primary);
+  white-space: nowrap;
+}
+
+
+
+
