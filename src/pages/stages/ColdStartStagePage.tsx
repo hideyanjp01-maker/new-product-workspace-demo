@@ -239,12 +239,37 @@ export default function ColdStartStagePage() {
     }
   ]
 
-  // 电商负责人使用原有配置化渲染（回退）
+  // 电商负责人使用专用5屏组件
   if (currentRoleId === 'ecommerce_owner') {
-    const metrics = getMetricsByRole('ecommerce_owner')
-    const renderSections = ecommerceOwnerStageConfig.coldStart.sections.filter(
-      s => s.type !== 'status-bar'
-    )
+    // 电商负责人专用tabs（不含旧的产品列表）
+    const ecomOwnerTabs = [
+      {
+        key: 'dashboard',
+        label: '数据看板',
+        content: <EcommerceOwnerColdStartFiveScreens />
+      },
+      {
+        key: 'ai',
+        label: 'AI洞察',
+        content: (
+          <Card padding="large">
+            <h2 className="section-title">AI分析洞察</h2>
+            <div className="ai-insights-list">
+              <div className="ai-insight-item">
+                <p>根据冷启动期数据分析，当前新品整体表现良好，GMV达成率77%。</p>
+              </div>
+              <div className="ai-insight-item">
+                <p>天猫渠道转化率偏低，建议优化详情页和主图，提升点击转化。</p>
+              </div>
+              <div className="ai-insight-item">
+                <p>抖音ROI表现优异，建议加大投放力度，扩大市场份额。</p>
+              </div>
+            </div>
+          </Card>
+        )
+      }
+    ]
+    
     return (
       <MainLayout>
         <PageHeader
@@ -252,16 +277,7 @@ export default function ColdStartStagePage() {
           subtitle="产品冷启动和运营管理"
           backPath="/stages/planning"
         />
-        <FilterBar showDateFilter showSearch showCategoryFilter />
-        <Tabs items={tabs} activeKey={viewMode} onChange={(key) => setViewMode(key as 'dashboard' | 'ai')} />
-        {viewMode === 'dashboard' && (
-          <StageSectionRenderer
-            sections={renderSections}
-            products={products}
-            metrics={metrics}
-            roleId={currentRoleId}
-          />
-        )}
+        <Tabs items={ecomOwnerTabs} activeKey={viewMode} onChange={(key) => setViewMode(key as 'dashboard' | 'ai')} />
       </MainLayout>
     )
   }

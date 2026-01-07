@@ -267,3 +267,4 @@ export const getProductFullName = (skuId: string): string => {
   return info.sku.name
 }
 
+
