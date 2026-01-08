@@ -16,6 +16,8 @@ export default function PlanningStagePage() {
   
   const { setCurrentStage, currentRoleId } = useAppStore()
   const planningProducts = useNewProductFlowStore((state) => state.planningProducts)
+  const pendingIdeas = useNewProductFlowStore((state) => state.getPendingIdeas())
+  const brandApprovedIdeas = useNewProductFlowStore((state) => state.getBrandApprovedIdeasForEcommerce())
   
   // 按角色过滤待处理产品
   const listForBrandOwner = planningProducts.filter(p => 
@@ -91,6 +93,71 @@ export default function PlanningStagePage() {
         {(isBrandOwner || isEcommerceOwner) && selectedProductId ? (
           // 显示详情页
           <PlanningProductDetail productId={selectedProductId} onClose={handleCloseDetail} />
+        ) : isBrandOwner && pendingIdeas.length > 0 ? (
+          // 品牌负责人：显示待审批灵感卡片列表
+          <div className="planning-pending-ideas">
+            <h2 className="section-title">待审批灵感卡片</h2>
+            <div className="pending-ideas-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: '16px', marginTop: '16px' }}>
+              {pendingIdeas.map((idea) => (
+                <Card
+                  key={idea.id}
+                  padding="large"
+                  hoverable
+                  className="pending-idea-card"
+                  style={{ cursor: 'pointer' }}
+                >
+                  <div style={{ marginBottom: '12px' }}>
+                    <h3 style={{ fontSize: '16px', fontWeight: 600, marginBottom: '8px', color: '#333' }}>
+                      {idea.title}
+                    </h3>
+                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginBottom: '8px' }}>
+                      {idea.tags.map((tag, idx) => (
+                        <span
+                          key={idx}
+                          style={{
+                            padding: '2px 8px',
+                            background: '#f0f0f0',
+                            borderRadius: '4px',
+                            fontSize: '12px',
+                            color: '#666'
+                          }}
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                    <div style={{ fontSize: '12px', color: '#999', marginBottom: '8px' }}>
+                      推入时间：{new Date(idea.createdAt).toLocaleString('zh-CN')}
+                    </div>
+                    <div style={{ fontSize: '13px', color: '#666', marginBottom: '12px' }}>
+                      {idea.summaryBullets.slice(0, 2).map((bullet, idx) => (
+                        <div key={idx} style={{ marginBottom: '4px' }}>• {bullet}</div>
+                      ))}
+                    </div>
+                    <div style={{ display: 'flex', gap: '8px', marginTop: '12px' }}>
+                      <div style={{ fontSize: '12px', color: '#666' }}>
+                        <span>综合分：{idea.score?.toFixed(1) || '-'}</span>
+                        {idea.gmvShare && <span style={{ marginLeft: '12px' }}>GMV份额：{idea.gmvShare}%</span>}
+                      </div>
+                    </div>
+                  </div>
+                  <div style={{ marginTop: '12px', paddingTop: '12px', borderTop: '1px solid #eee' }}>
+                    <Button
+                      variant="primary"
+                      size="small"
+                      onClick={(e) => {
+                        e.stopPropagation()
+                        navigate(`/planning/approval/${idea.id}`)
+                      }}
+                      style={{ width: '100%' }}
+                    >
+                      试销审批
+                    </Button>
+                  </div>
+                </Card>
+              ))}
+            </div>
+          </div>
         ) : isBrandOwner && pendingProducts.length > 0 ? (
           // 品牌负责人：显示待审批新品列表
           <div className="planning-pending-products">
@@ -125,8 +192,74 @@ export default function PlanningStagePage() {
               ))}
             </div>
           </div>
+        ) : isEcommerceOwner && brandApprovedIdeas.length > 0 ? (
+          // 电商负责人：显示品牌负责人已批准的灵感卡片列表
+          <div className="planning-pending-ideas">
+            <h2 className="section-title">待确认新品（品牌负责人已批准）</h2>
+            <div className="pending-ideas-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: '16px', marginTop: '16px' }}>
+              {brandApprovedIdeas.map((idea) => (
+                <Card
+                  key={idea.id}
+                  padding="large"
+                  hoverable
+                  className="pending-idea-card"
+                  style={{ cursor: 'pointer' }}
+                  onClick={() => navigate(`/roles/ecommerce-owner/planning/approve/${idea.id}`)}
+                >
+                  <div style={{ marginBottom: '12px' }}>
+                    <h3 style={{ fontSize: '16px', fontWeight: 600, marginBottom: '8px', color: '#333' }}>
+                      {idea.title}
+                    </h3>
+                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginBottom: '8px' }}>
+                      {idea.tags.map((tag, idx) => (
+                        <span
+                          key={idx}
+                          style={{
+                            padding: '2px 8px',
+                            background: '#f0f0f0',
+                            borderRadius: '4px',
+                            fontSize: '12px',
+                            color: '#666'
+                          }}
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                    <div style={{ fontSize: '12px', color: '#999', marginBottom: '8px' }}>
+                      品牌负责人已批准
+                    </div>
+                    <div style={{ fontSize: '13px', color: '#666', marginBottom: '12px' }}>
+                      {idea.summaryBullets.slice(0, 2).map((bullet, idx) => (
+                        <div key={idx} style={{ marginBottom: '4px' }}>• {bullet}</div>
+                      ))}
+                    </div>
+                    <div style={{ display: 'flex', gap: '8px', marginTop: '12px' }}>
+                      <div style={{ fontSize: '12px', color: '#666' }}>
+                        <span>综合分：{idea.score?.toFixed(1) || '-'}</span>
+                        {idea.gmvShare && <span style={{ marginLeft: '12px' }}>GMV份额：{idea.gmvShare}%</span>}
+                      </div>
+                    </div>
+                  </div>
+                  <div style={{ marginTop: '12px', paddingTop: '12px', borderTop: '1px solid #eee' }}>
+                    <Button
+                      variant="primary"
+                      size="small"
+                      onClick={(e) => {
+                        e.stopPropagation()
+                        navigate(`/roles/ecommerce-owner/planning/approve/${idea.id}`)
+                      }}
+                      style={{ width: '100%' }}
+                    >
+                      最终审批
+                    </Button>
+                  </div>
+                </Card>
+              ))}
+            </div>
+          </div>
         ) : isEcommerceOwner && pendingProducts.length > 0 ? (
-          // 电商负责人：显示待确认新品列表
+          // 电商负责人：显示待确认新品列表（旧的 PlanningProduct）
           <div className="planning-pending-products">
             <h2 className="section-title">待确认新品</h2>
             <div className="pending-products-grid">
@@ -160,11 +293,11 @@ export default function PlanningStagePage() {
             </div>
           </div>
         ) : isBrandOwner ? (
-          // 品牌负责人：无待审批新品
+          // 品牌负责人：无待审批内容
           <Card padding="large">
             <div className="empty-state">
-              <p>暂无待审批新品</p>
-              <p className="empty-hint">市场分析推入的新品将显示在这里</p>
+              <p>暂无待审批灵感卡片</p>
+              <p className="empty-hint">市场分析推入的灵感卡片将显示在这里</p>
             </div>
           </Card>
         ) : isEcommerceOwner ? (

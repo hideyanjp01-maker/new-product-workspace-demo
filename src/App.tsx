@@ -6,6 +6,8 @@ import ScaleUpStagePage from './pages/stages/ScaleUpStagePage'
 import OverviewPage from './pages/stages/OverviewPage'
 import RoleDetailPageWrapper from './pages/roles/RoleDetailPageWrapper'
 import EcommerceOwnerPlanningConfirmPage from './pages/roles/EcommerceOwnerPlanningConfirmPage'
+import BrandOwnerIdeaApprovalPage from './pages/roles/BrandOwnerIdeaApprovalPage'
+import EcommerceOwnerIdeaApprovalPage from './pages/roles/EcommerceOwnerIdeaApprovalPage'
 
 function App() {
   return (
@@ -19,6 +21,8 @@ function App() {
         <Route path="/stages/scale-up" element={<ScaleUpStagePage />} />
         <Route path="/roles/:roleId" element={<RoleDetailPageWrapper />} />
         <Route path="/roles/ecommerce_owner/planning-confirm" element={<EcommerceOwnerPlanningConfirmPage />} />
+        <Route path="/planning/approval/:ideaId" element={<BrandOwnerIdeaApprovalPage />} />
+        <Route path="/roles/ecommerce-owner/planning/approve/:ideaId" element={<EcommerceOwnerIdeaApprovalPage />} />
       </Routes>
     </Router>
   )

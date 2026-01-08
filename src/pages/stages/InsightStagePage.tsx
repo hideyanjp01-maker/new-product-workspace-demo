@@ -4,6 +4,7 @@ import MainLayout from '../../components/layout/MainLayout'
 import PageHeader from '../../components/layout/PageHeader'
 import { Card, Button, Modal } from '../../components/ui'
 import { useAppStore } from '../../store/appStore'
+import { useNewProductFlowStore } from '../../store/newProductFlowStore'
 import {
   hasData,
   setHasData,
@@ -21,6 +22,8 @@ import './InsightStagePage.css'
 export default function InsightStagePage() {
   const navigate = useNavigate()
   const { setCurrentStage } = useAppStore()
+  const pushIdeaToPlanning = useNewProductFlowStore((state) => state.pushIdeaToPlanning)
+  const planningIdeas = useNewProductFlowStore((state) => state.planningIdeas)
   const [dataState, setDataState] = useState(hasData)
   const [importModalOpen, setImportModalOpen] = useState(false)
   const [topOpportunityModalOpen, setTopOpportunityModalOpen] = useState(false)
@@ -28,6 +31,7 @@ export default function InsightStagePage() {
   const [ideaDetailModalOpen, setIdeaDetailModalOpen] = useState(false)
   const [selectedIdea, setSelectedIdea] = useState<IdeaCard | null>(null)
   const [sortConfig, setSortConfig] = useState<{ key: string; direction: 'asc' | 'desc' } | null>(null)
+  const [pushToast, setPushToast] = useState<string | null>(null)
 
   useEffect(() => {
     setCurrentStage('insight')
@@ -143,8 +147,30 @@ export default function InsightStagePage() {
                 >
                   {card.actions[0]}
                 </Button>
-                <Button variant="secondary" size="small">
-                  {card.actions[1]}
+                <Button
+                  variant="secondary"
+                  size="small"
+                  disabled={planningIdeas.some(idea => idea.id === card.id)}
+                  onClick={() => {
+                    // 检查是否已存在，避免重复推送
+                    const alreadyPushed = planningIdeas.some(idea => idea.id === card.id)
+                    if (!alreadyPushed) {
+                      pushIdeaToPlanning({
+                        id: card.id,
+                        title: card.title,
+                        tags: card.tags,
+                        summaryBullets: card.bullets,
+                        score: card.metrics.score,
+                        gmvShare: card.metrics.gmvShare,
+                        spuShare: card.metrics.spuShare,
+                        opportunityScore: card.metrics.score
+                      })
+                      setPushToast(card.id)
+                      setTimeout(() => setPushToast(null), 2000)
+                    }
+                  }}
+                >
+                  {planningIdeas.some(idea => idea.id === card.id) ? '已推送' : '推入新品企划'}
                 </Button>
               </div>
             </Card>
@@ -465,6 +491,23 @@ export default function InsightStagePage() {
         subtitle="新品灵感洞察器（市场分析）"
         backPath="/stages/overview"
       />
+      
+      {/* Toast 提示 */}
+      {pushToast && (
+        <div style={{
+          position: 'fixed',
+          top: '20px',
+          right: '20px',
+          background: '#4caf50',
+          color: 'white',
+          padding: '12px 24px',
+          borderRadius: '4px',
+          zIndex: 10000,
+          boxShadow: '0 2px 8px rgba(0,0,0,0.15)'
+        }}>
+          已推入新品企划
+        </div>
+      )}
       
       {/* 筛选栏 */}
       {renderFilterBar()}

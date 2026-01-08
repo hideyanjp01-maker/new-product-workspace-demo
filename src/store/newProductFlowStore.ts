@@ -15,6 +15,34 @@ export interface IdeaOpportunity {
   createdAt: string
 }
 
+// 企划期待审批灵感卡片
+export interface PlanningIdea {
+  id: string
+  title: string
+  tags: string[]
+  summaryBullets: string[]
+  score?: number
+  gmvShare?: number
+  spuShare?: number
+  opportunityScore?: number
+  source: 'market_analysis'
+  createdAt: number
+  status: 'pending' | 'approved' | 'rejected' | 'started'
+  // approval page defaults
+  anchor: {
+    suggestGMV: number
+    suggestBudget: number
+    suggestFeeRatioText: string
+    suggestAOV: number
+  }
+  portrait: {
+    gender: string
+    age: number
+    region: string
+    sellingPoint: string
+  }
+}
+
 // 默认企划期阶段状态
 export const defaultPlanningStageStatus = {
   brandOwnerDecision: 'pending' as 'pending' | 'approved' | 'rejected',
@@ -80,6 +108,7 @@ export interface PlanningProduct {
 
 interface NewProductFlowState {
   planningProducts: PlanningProduct[]
+  planningIdeas: PlanningIdea[]
   
   pushToPlanning: (idea: IdeaOpportunity) => void
   approvePlanning: (productId: string) => void
@@ -87,10 +116,23 @@ interface NewProductFlowState {
   getPendingProducts: () => PlanningProduct[]
   getProductById: (productId: string) => PlanningProduct | undefined
   
+  // 企划期待审批灵感卡片相关方法
+  pushIdeaToPlanning: (idea: Omit<PlanningIdea, 'id' | 'createdAt' | 'status' | 'source' | 'anchor' | 'portrait'> & { id?: string }) => void
+  approveIdea: (ideaId: string) => void
+  rejectIdea: (ideaId: string) => void
+  getPendingIdeas: () => PlanningIdea[]
+  getApprovedIdeas: () => PlanningIdea[]
+  getRejectedIdeas: () => PlanningIdea[]
+  getIdeaById: (ideaId: string) => PlanningIdea | undefined
+  
   // 电商负责人相关方法
   getEcommercePendingProducts: () => PlanningProduct[]
   updateEcommerceTargets: (productId: string, partialTargets: Partial<PlanningProduct['ecommerceTargets']>) => void
   confirmEcommerceTargets: (productId: string) => void
+  
+  // 电商负责人审批灵感卡片相关方法
+  getBrandApprovedIdeasForEcommerce: () => PlanningIdea[]
+  ownerApproveStart: (ideaId: string) => void
 }
 
 // 默认电商目标值
@@ -124,6 +166,7 @@ export const useNewProductFlowStore = create<NewProductFlowState>()(
   persist(
     (set, get) => ({
       planningProducts: [],
+      planningIdeas: [],
 
       pushToPlanning: (idea: IdeaOpportunity) => {
         const state = get()
@@ -266,6 +309,91 @@ export const useNewProductFlowStore = create<NewProductFlowState>()(
               }
             }
           })
+        }))
+      },
+
+      pushIdeaToPlanning: (ideaData) => {
+        const state = get()
+        const ideaId = ideaData.id || `idea-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`
+        
+        // 检查是否已存在（去重）
+        const exists = state.planningIdeas.some(idea => idea.id === ideaId)
+        if (exists) {
+          return
+        }
+
+        const newIdea: PlanningIdea = {
+          id: ideaId,
+          title: ideaData.title,
+          tags: ideaData.tags,
+          summaryBullets: ideaData.summaryBullets,
+          score: ideaData.score,
+          gmvShare: ideaData.gmvShare,
+          spuShare: ideaData.spuShare,
+          opportunityScore: ideaData.opportunityScore,
+          source: 'market_analysis',
+          createdAt: Date.now(),
+          status: 'pending',
+          anchor: {
+            suggestGMV: 3000000,
+            suggestBudget: 1200000,
+            suggestFeeRatioText: '2.5',
+            suggestAOV: 9.9
+          },
+          portrait: {
+            gender: '女',
+            age: 24,
+            region: '北京',
+            sellingPoint: '好用好用好用好用好用'
+          }
+        }
+
+        set({
+          planningIdeas: [...state.planningIdeas, newIdea]
+        })
+      },
+
+      approveIdea: (ideaId: string) => {
+        set((state) => ({
+          planningIdeas: state.planningIdeas.map(idea =>
+            idea.id === ideaId ? { ...idea, status: 'approved' } : idea
+          )
+        }))
+      },
+
+      rejectIdea: (ideaId: string) => {
+        set((state) => ({
+          planningIdeas: state.planningIdeas.map(idea =>
+            idea.id === ideaId ? { ...idea, status: 'rejected' } : idea
+          )
+        }))
+      },
+
+      getPendingIdeas: () => {
+        return get().planningIdeas.filter(idea => idea.status === 'pending')
+      },
+
+      getApprovedIdeas: () => {
+        return get().planningIdeas.filter(idea => idea.status === 'approved')
+      },
+
+      getRejectedIdeas: () => {
+        return get().planningIdeas.filter(idea => idea.status === 'rejected')
+      },
+
+      getIdeaById: (ideaId: string) => {
+        return get().planningIdeas.find(idea => idea.id === ideaId)
+      },
+
+      getBrandApprovedIdeasForEcommerce: () => {
+        return get().planningIdeas.filter(idea => idea.status === 'approved')
+      },
+
+      ownerApproveStart: (ideaId: string) => {
+        set((state) => ({
+          planningIdeas: state.planningIdeas.map(idea =>
+            idea.id === ideaId ? { ...idea, status: 'started' } : idea
+          )
         }))
       }
     }),

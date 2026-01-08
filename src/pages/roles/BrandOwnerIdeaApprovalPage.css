@@ -1,0 +1,108 @@
+.approval-page-content {
+  padding: 24px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.approval-top-section {
+  margin-bottom: 24px;
+}
+
+.anchor-info,
+.portrait-info {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.anchor-item,
+.portrait-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.anchor-item:last-child,
+.portrait-item:last-child {
+  border-bottom: none;
+}
+
+.anchor-label,
+.portrait-label {
+  font-size: 14px;
+  color: #666;
+}
+
+.anchor-value,
+.portrait-value {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+}
+
+.approval-buttons {
+  margin-top: 24px;
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+}
+
+.simulator-inputs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.three-month-table {
+  margin-top: 24px;
+}
+
+.three-month-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.three-month-table th,
+.three-month-table td {
+  padding: 10px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+.three-month-table th {
+  background: #f5f5f5;
+  font-weight: 600;
+}
+
+.scoring-dimensions {
+  margin-bottom: 24px;
+}
+
+.scoring-dimension {
+  margin-bottom: 16px;
+}
+
+.scoring-bar {
+  height: 24px;
+  background: #f0f0f0;
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+}
+
+.overall-score {
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid #eee;
+}
+
+.overall-score-bar {
+  height: 32px;
+  background: #f0f0f0;
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+}
+
